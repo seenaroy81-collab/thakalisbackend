@@ -352,7 +352,7 @@ const addBanner = async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ msg: "No image file uploaded" });
     }
-    const newBanner = await Banner.create({ image: req.file.path });
+    const newBanner = await Banner.create({ image: req.file.path, ...req.body });
     res.status(201).json({ msg: "Banner added successfully", data: newBanner });
   } catch (err) {
     res.status(400).json({ error: err.message });

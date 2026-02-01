@@ -367,7 +367,7 @@ export const getHomeDataWithCarousel = async (req, res) => {
 
         // Fetch all four datasets in parallel
         const [banners, categories, carousels, products, totalProducts] = await Promise.all([
-            Banner.find().lean(),
+            Banner.find().populate("storeId").lean(),
             Category.find().lean(),
             Carousel.find({ isActive: true }).sort({ order: 1 }).lean(),
             Product.find({ isAvailable: true })

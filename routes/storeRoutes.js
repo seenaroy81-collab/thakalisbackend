@@ -23,8 +23,8 @@ router.post("/login", storeLogin);
 // Public product routes
 router.get("/home", getHomeData); // Combined endpoint for banners, categories, and products (No Carousel)
 router.get("/home-carousel", getHomeDataWithCarousel); // Combined endpoint INCLUDING Carousel
-// router.get("/", getAllPublicProducts);
-// router.get("/public/products/:storeId", getPublicStoreProducts);
+router.get("/", getAllPublicProducts);
+router.get("/public/products/:storeId", getPublicStoreProducts);
 
 // Product management routes (Protected)
 router.use(protectStore); // Apply protection to all routes below

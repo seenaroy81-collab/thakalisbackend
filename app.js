@@ -30,7 +30,9 @@ if (!process.env.JWT_SECRET_KEY) {
 
 const corsOptions = {
   origin: [
-    "http://localhost:5173", "https://e-commerce-ui-731u.vercel.app"
+    "http://localhost:5173",
+    "https://e-commerce-ui-731u.vercel.app",
+    "https://ecommerce-thakalis.vercel.app"
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,

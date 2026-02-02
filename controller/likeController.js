@@ -35,7 +35,7 @@ const fetchLikes = async (req, res) => {
     const userLikes = await Likes.find({ userId: userId }) // no need for `new ObjectId(...)`
       .populate({
         path: "foodId",
-        select: "name price image isAvailable category",
+        select: "productName price images isAvailable category",
         populate: {
           path: "storeId",
           select: "storeName",

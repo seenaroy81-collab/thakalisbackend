@@ -15,7 +15,8 @@ import {
   getAllBanners,
   addBanner,
   updateBanner,
-  deleteBanner
+  deleteBanner,
+  deleteCategory
 } from "../controller/adminController.js";
 import upload from "../config/multer.js";
 
@@ -28,6 +29,7 @@ app.route("/stores/:id").put(upload.single('image'), updateStores).delete(delete
 app.route("/food").post(upload.fields([{ name: 'image', maxCount: 1 }, { name: 'categoryImage', maxCount: 1 }]), addFoodItems).get(getFoodItems);
 app.route("/food/:id").put(upload.fields([{ name: 'image', maxCount: 1 }, { name: 'categoryImage', maxCount: 1 }]), updateFoodItems).delete(deleteFoodItems);
 app.route("/categories").get(getCategories).post(upload.single('image'), addCategory);
+app.route("/categories/:id").delete(deleteCategory);
 app.route("/banners").get(getAllBanners).post(upload.single('image'), addBanner);
 app.route("/banners/:id").put(upload.single('image'), updateBanner).delete(deleteBanner);
 

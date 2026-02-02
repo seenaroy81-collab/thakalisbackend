@@ -7,7 +7,7 @@ import protect from "../middleWare/userMiddleWare.js";
 import express from "express";
 
 const app = express.Router();
-app.route("/").post(protect, addLike).get(protect, fetchLikes)
-app.route("/:id").delete(protect, removeLike);
+app.route("/").get(protect, fetchLikes);
+app.route("/:id").post(protect, addLike).delete(protect, removeLike);
 
 export default app;

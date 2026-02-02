@@ -17,8 +17,5 @@ const likeSchema = new mongoose.Schema({
     },
 });
 
-// ✅ Ensures a user can't like the same food item twice
-likeSchema.index({ userId: 1, foodId: 1 }, { unique: true });
-
-const Likes = mongoose.model("Likes", likeSchema);
-export default Likes;
+const Like = mongoose.model("Like", likeSchema);
+export default Like;

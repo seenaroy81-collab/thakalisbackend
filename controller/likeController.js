@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 const addLike = async (req, res) => {
   try {
-    const userId = req.user._id; // ✅ Get from middleware, not body
+    const userId = req.user._id;
     const { foodId } = req.body;
 
     if (!foodId) {
@@ -22,7 +22,7 @@ const addLike = async (req, res) => {
     const newLike = await Likes.create({ userId, foodId });
     res.status(201).json({ msg: "Like added successfully", data: newLike });
   } catch (err) {
-    console.error("Add like error:", err); // ✅ Log the error
+    console.error("Add like error:", err);
     res.status(500).json({ msg: "Server Error", error: err.message });
   }
 };
@@ -70,7 +70,7 @@ const removeLike = async (req, res) => {
     }
 
     const result = await Likes.findOneAndDelete({
-      userId, // already ObjectId if from DB
+      userId,
       foodId: new mongoose.Types.ObjectId(foodId),
     });
 

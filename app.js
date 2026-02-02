@@ -20,9 +20,11 @@ import carouselRoutes from "./routes/carouselRoutes.js";
 import storeRoutes from "./routes/storeRoutes.js";
 import instance from "./config/razorpay.js";
 import cors from "cors";
+import compression from "compression";
 
 
 const app = express();
+app.use(compression());
 
 if (!process.env.JWT_SECRET_KEY) {
   console.warn("WARNING: JWT_SECRET_KEY is not defined in .env file");
@@ -74,5 +76,6 @@ app.listen(PORT, () => {
 connectDB().catch(err => {
   console.error("Failed to connect to MongoDB:", err.message);
 });
+
 
 
